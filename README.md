@@ -56,23 +56,7 @@ This is the personal portfolio of **Prince Anyanwu**, an AI Infrastructure & Cos
 - Geist font family
 - Responsive design utilities
 
-## 📦 Installation & Setup
-
-### Prerequisites
-- Node.js 18+
-- pnpm (recommended) or npm
-
-### Local Development
-
-```bash
-# Clone the repository
-git clone https://github.com/anyanwuihueze/prince-portfolio.git
-cd prince-portfolio
-
-# Install dependencies
-pnpm install
-
-# Start development server
+ server
 pnpm dev
 
 # Open in browser
@@ -155,29 +139,7 @@ prince-portfolio/
 - How-to guides for common automation challenges
 - Step-by-step implementation
 - Code examples and best practices
-- SEO-optimized for organic discovery
 
-## 🚀 Deployment
-
-### Deploy to Vercel
-
-1. **Connect GitHub Repository**
-   ```bash
-   # Push code to GitHub
-   git push origin main
-   ```
-
-2. **Connect to Vercel**
-   - Go to https://vercel.com
-   - Click "New Project"
-   - Select this GitHub repository
-   - Vercel will auto-detect Next.js/Vite configuration
-   - Click "Deploy"
-
-3. **Custom Domain (Optional)**
-   - In Vercel project settings
-   - Add your custom domain
-   - Update DNS records
 
 ### Environment Variables
 
@@ -188,8 +150,7 @@ No environment variables required for basic deployment.
 **Email:** anyanwuihueze@gmail.com  
 **Phone:** +234-9031622709 | +234-7088564317  
 **LinkedIn:** [Prince Anyanwu](https://linkedin.com/in/anyanwu-prince)  
-**GitHub:** [@anyanwuihueze](https://github.com/anyanwuihueze)  
-**Twitter:** [@PrinceAI_](https://twitter.com/PrinceAI_)
+**GitHub:** https://github.com/anyanwuihueze
 
 ## 📊 Performance
 
