@@ -1,8 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Drawer, DrawerContent, DrawerTrigger, DrawerClose } from "@/components/ui/drawer";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { useIsMobile } from "@/hooks/useMobile";
-import { ArrowRight, Code2, Zap, BarChart3, MessageSquare, Github, Linkedin, Mail, Cpu, Workflow, Headphones, TrendingUp, CheckCircle2, Menu, X } from "lucide-react";
+import { ArrowRight, Code2, Zap, BarChart3, MessageSquare, Github, Linkedin, Mail, Cpu, Workflow, Headphones, TrendingUp, CheckCircle2, Menu, X, ExternalLink, BarChart, Bot, Radio, Database } from "lucide-react";
 import { useState } from "react";
 
 export default function Home() {
@@ -15,6 +23,34 @@ export default function Home() {
     { href: "#projects", label: "Projects" },
     { href: "#expertise", label: "Expertise" },
     { href: "#contact", label: "Contact" },
+  ];
+
+  // Project links - UPDATE THESE WITH YOUR ACTUAL PROJECT URLs
+  const projects = [
+    {
+      name: "Burn Rate",
+      description: "AI Cost Observability Platform",
+      url: "https://burnrate.example.com", // <-- UPDATE THIS
+      icon: <BarChart className="w-4 h-4" />,
+    },
+    {
+      name: "Voice AI Agents",
+      description: "Conversational AI Infrastructure",
+      url: "https://voiceai.example.com", // <-- UPDATE THIS
+      icon: <Radio className="w-4 h-4" />,
+    },
+    {
+      name: "Automation Agents",
+      description: "Workflow Orchestration Platform",
+      url: "https://automation.example.com", // <-- UPDATE THIS
+      icon: <Bot className="w-4 h-4" />,
+    },
+    {
+      name: "Japa Genie",
+      description: "AI Knowledge System",
+      url: "https://japagenie.example.com", // <-- UPDATE THIS
+      icon: <Database className="w-4 h-4" />,
+    },
   ];
 
   return (
@@ -91,12 +127,52 @@ export default function Home() {
               Specializing in LLM observability, token cost monitoring, AI automation systems, and developer tooling. 
               Bridging traditional cost engineering with modern AI infrastructure.
             </p>
-            <div className="flex gap-4 pt-4">
-              <Button size="lg" className="gap-2">
-                View My Work <ArrowRight className="w-4 h-4" />
-              </Button>
-              <Button size="lg" variant="outline">
-                Get in Touch
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              {/* View My Work Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button size="lg" className="gap-2">
+                    View My Work <ArrowRight className="w-4 h-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent 
+                  align="start" 
+                  className="w-72 bg-background border-border shadow-xl"
+                  sideOffset={8}
+                >
+                  <DropdownMenuLabel className="text-primary font-semibold">
+                    My Projects
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator className="bg-border" />
+                  {projects.map((project) => (
+                    <DropdownMenuItem key={project.name} asChild>
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-start gap-3 py-3 px-2 cursor-pointer hover:bg-accent focus:bg-accent rounded-sm"
+                      >
+                        <div className="text-primary mt-0.5">{project.icon}</div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="font-medium text-foreground">{project.name}</span>
+                            <ExternalLink className="w-3 h-3 text-muted-foreground flex-shrink-0" />
+                          </div>
+                          <span className="text-xs text-muted-foreground block truncate">
+                            {project.description}
+                          </span>
+                        </div>
+                      </a>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              {/* Get in Touch Button */}
+              <Button size="lg" variant="outline" asChild>
+                <a href="mailto:anyanwuihueze@gmail.com">
+                  Get in Touch
+                </a>
               </Button>
             </div>
           </div>
