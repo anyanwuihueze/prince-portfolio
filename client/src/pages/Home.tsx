@@ -1,22 +1,78 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Code2, Zap, BarChart3, MessageSquare, Github, Linkedin, Mail, Cpu, Workflow, Headphones, TrendingUp, CheckCircle2 } from "lucide-react";
+import { Drawer, DrawerContent, DrawerTrigger, DrawerClose } from "@/components/ui/drawer";
+import { useIsMobile } from "@/hooks/useMobile";
+import { ArrowRight, Code2, Zap, BarChart3, MessageSquare, Github, Linkedin, Mail, Cpu, Workflow, Headphones, TrendingUp, CheckCircle2, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 export default function Home() {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
+
+  const navLinks = [
+    { href: "#capabilities", label: "What I Build" },
+    { href: "#projects", label: "Projects" },
+    { href: "#expertise", label: "Expertise" },
+    { href: "#contact", label: "Contact" },
+  ];
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-        <div className="container flex items-center justify-between h-16">
+        <div className="container flex items-center justify-between h-16 px-4 sm:px-6">
           <div className="text-lg font-bold text-primary">Prince Anyanwu</div>
-          <div className="flex items-center gap-6">
-            <a href="#capabilities" className="text-sm hover:text-primary transition-colors">What I Build</a>
-            <a href="#projects" className="text-sm hover:text-primary transition-colors">Projects</a>
-            <a href="#expertise" className="text-sm hover:text-primary transition-colors">Expertise</a>
-            <a href="#contact" className="text-sm hover:text-primary transition-colors">Contact</a>
+          
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-6">
+            {navLinks.map((link) => (
+              <a 
+                key={link.href} 
+                href={link.href} 
+                className="text-sm hover:text-primary transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <Drawer open={mobileMenuOpen} onOpenChange={setMobileMenuOpen} direction="right">
+              <DrawerTrigger asChild>
+                <Button variant="ghost" size="icon" className="h-10 w-10">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Open menu</span>
+                </Button>
+              </DrawerTrigger>
+              <DrawerContent className="w-[280px] sm:w-[320px]">
+                <div className="flex flex-col h-full">
+                  <div className="flex items-center justify-between p-4 border-b border-border">
+                    <span className="text-lg font-bold text-primary">Menu</span>
+                    <DrawerClose asChild>
+                      <Button variant="ghost" size="icon" className="h-10 w-10">
+                        <X className="h-5 w-5" />
+                        <span className="sr-only">Close menu</span>
+                      </Button>
+                    </DrawerClose>
+                  </div>
+                  <nav className="flex flex-col p-4 gap-2">
+                    {navLinks.map((link) => (
+                      <DrawerClose key={link.href} asChild>
+                        <a
+                          href={link.href}
+                          className="flex items-center px-4 py-3 text-base font-medium rounded-lg hover:bg-accent hover:text-accent-foreground transition-colors"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {link.label}
+                        </a>
+                      </DrawerClose>
+                    ))}
+                  </nav>
+                </div>
+              </DrawerContent>
+            </Drawer>
           </div>
         </div>
       </nav>
