@@ -25,30 +25,24 @@ export default function Home() {
     { href: "#contact", label: "Contact" },
   ];
 
-  // Project links - UPDATE THESE WITH YOUR ACTUAL PROJECT URLs
+  // Project links with actual URLs
   const projects = [
     {
       name: "Burn Rate",
       description: "AI Cost Observability Platform",
-      url: "https://burnrate.example.com", // <-- UPDATE THIS
+      url: "https://burn-rate-zeta.vercel.app/",
       icon: <BarChart className="w-4 h-4" />,
     },
     {
-      name: "Voice AI Agents",
-      description: "Conversational AI Infrastructure",
-      url: "https://voiceai.example.com", // <-- UPDATE THIS
-      icon: <Radio className="w-4 h-4" />,
-    },
-    {
-      name: "Automation Agents",
-      description: "Workflow Orchestration Platform",
-      url: "https://automation.example.com", // <-- UPDATE THIS
+      name: "Eden Access",
+      description: "Automation & Workflow Platform",
+      url: "https://eden-access.vercel.app/",
       icon: <Bot className="w-4 h-4" />,
     },
     {
       name: "Japa Genie",
-      description: "AI Knowledge System",
-      url: "https://japagenie.example.com", // <-- UPDATE THIS
+      description: "AI Knowledge System for Immigration",
+      url: "https://www.japagenie.com",
       icon: <Database className="w-4 h-4" />,
     },
   ];
@@ -625,13 +619,17 @@ export default function Home() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="gap-2">
-              <Mail className="w-4 h-4" />
-              Send Me an Email
+            <Button size="lg" className="gap-2" asChild>
+              <a href="mailto:anyanwuihueze@gmail.com">
+                <Mail className="w-4 h-4" />
+                Send Me an Email
+              </a>
             </Button>
-            <Button size="lg" variant="outline" className="gap-2">
-              <Linkedin className="w-4 h-4" />
-              Connect on LinkedIn
+            <Button size="lg" variant="outline" className="gap-2" asChild>
+              <a href="https://linkedin.com/in/anyanwuihueze" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="w-4 h-4" />
+                Connect on LinkedIn
+              </a>
             </Button>
           </div>
         </div>
