@@ -108,66 +108,94 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4">
-        <div className="container max-w-4xl">
-          <div className="space-y-6">
-            <div className="inline-block px-3 py-1 bg-primary/10 border border-primary/30 rounded-full">
-              <span className="text-sm text-primary font-medium">AI Infrastructure Engineer</span>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-              Building tools that help companies <span className="text-primary">optimize AI costs</span> and scale efficiently
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-              Specializing in LLM observability, token cost monitoring, AI automation systems, and developer tooling. 
-              Bridging traditional cost engineering with modern AI infrastructure.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              {/* View My Work Dropdown */}
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button size="lg" className="gap-2">
-                    View My Work <ArrowRight className="w-4 h-4" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent 
-                  align="start" 
-                  className="w-72 bg-background border-border shadow-xl"
-                  sideOffset={8}
-                >
-                  <DropdownMenuLabel className="text-primary font-semibold">
-                    My Projects
-                  </DropdownMenuLabel>
-                  <DropdownMenuSeparator className="bg-border" />
-                  {projects.map((project) => (
-                    <DropdownMenuItem key={project.name} asChild>
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-start gap-3 py-3 px-2 cursor-pointer hover:bg-accent focus:bg-accent rounded-sm"
-                      >
-                        <div className="text-primary mt-0.5">{project.icon}</div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2">
-                            <span className="font-medium text-foreground">{project.name}</span>
-                            <ExternalLink className="w-3 h-3 text-muted-foreground flex-shrink-0" />
-                          </div>
-                          <span className="text-xs text-muted-foreground block truncate">
-                            {project.description}
-                          </span>
-                        </div>
-                      </a>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
+      <section className="relative overflow-hidden pt-28 pb-20 px-4">
+        <div className="container max-w-6xl">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+            <div className="space-y-6">
+              <div className="inline-flex px-3 py-1 bg-primary/10 border border-primary/30 rounded-full">
+                <span className="text-sm text-primary font-medium">
+                  AI Systems Engineer & Automation Architect
+                </span>
+              </div>
 
-              {/* Get in Touch Button */}
-              <Button size="lg" variant="outline" asChild>
-                <a href="mailto:anyanwuihueze@gmail.com">
-                  Get in Touch
-                </a>
-              </Button>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
+                Building intelligent systems that help businesses{" "}
+                <span className="text-primary">work smarter and scale efficiently.</span>
+              </h1>
+
+              <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
+                I build AI infrastructure, automation systems, and cost-observability
+                tools that turn complex technical problems into practical business solutions.
+              </p>
+
+              <div className="flex flex-wrap gap-4 pt-4">
+                {/* View My Work Dropdown */}
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button size="lg" className="gap-2">
+                      View My Work <ArrowRight className="w-4 h-4" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent
+                    align="start"
+                    className="w-72 bg-background border-border shadow-xl"
+                    sideOffset={8}
+                  >
+                    <DropdownMenuLabel className="text-primary font-semibold">
+                      My Projects
+                    </DropdownMenuLabel>
+                    <DropdownMenuSeparator className="bg-border" />
+                    {projects.map((project) => (
+                      <DropdownMenuItem key={project.name} asChild>
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-start gap-3 py-3 px-2 cursor-pointer hover:bg-accent focus:bg-accent rounded-sm"
+                        >
+                          <div className="text-primary mt-0.5">{project.icon}</div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2">
+                              <span className="font-medium text-foreground">{project.name}</span>
+                              <ExternalLink className="w-3 h-3 text-muted-foreground flex-shrink-0" />
+                            </div>
+                            <span className="text-xs text-muted-foreground block truncate">
+                              {project.description}
+                            </span>
+                          </div>
+                        </a>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+
+                <Button size="lg" variant="outline" asChild>
+                  <a href="mailto:anyanwuihueze@gmail.com">
+                    Get in Touch
+                  </a>
+                </Button>
+              </div>
+
+              <p className="text-xs text-muted-foreground tracking-wide">
+                AI INFRASTRUCTURE · AUTOMATION · COST OBSERVABILITY
+              </p>
+            </div>
+
+            <div className="relative mx-auto w-full max-w-[390px] lg:ml-auto">
+              <div className="absolute -inset-3 rounded-2xl border border-primary/20" />
+              <div className="relative overflow-hidden rounded-xl border border-primary/30 bg-card shadow-2xl">
+                <img
+                  src="/images/prince-portrait.jpg"
+                  alt="Prince Anyanwu"
+                  className="block h-auto w-full object-contain"
+                  loading="eager"
+                  fetchPriority="high"
+                />
+              </div>
+              <div className="absolute -bottom-5 -left-5 hidden rounded-lg border border-border bg-card px-4 py-3 shadow-xl sm:block">
+                <span className="block text-xs text-muted-foreground">Building</span>
+                <span className="text-sm font-semibold text-primary">Real-world AI systems</span>
+              </div>
             </div>
           </div>
         </div>
